@@ -7,7 +7,7 @@ Trust me this will save you some time, please enjoy :)
 ```
 mkdir ~/tools && cd ~/tools && git clone https://github.com/vushu/cwd_tools.git
 
-echo source ~/tools/cwd_tools/cwd_tools >> ~/.bashrc
+echo "source ~/tools/cwd_tools/cwd_tools" >> ~/.bashrc
 source ~/.bashrc
 ```
 
