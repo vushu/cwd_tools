@@ -34,7 +34,7 @@ cwd-edit-tools(){
   vim ~/scripts/cwd_tools
 }
 
-cwd-path()
+cwd-paths()
 {
   vim $PATH_FILE
 }

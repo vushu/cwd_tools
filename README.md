@@ -31,7 +31,7 @@ cwd-get <number>
 ```
 cwd-remove <number>
 ```
-#### Show cwd-list.txt to manualy modify
+#### Show cwd-list.txt to manually modify
 ```
 cwd-paths
 ```
