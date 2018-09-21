@@ -1,7 +1,7 @@
 #### Preface
 Im using the terminal alot especially navigating to different working dirs, but I got lazy doing that, 
 so I made this simple tool to administrate your current working dirs to fastly switch from cwd to cwd.
-Trust me you will save you some time, please enjoy :)
+Trust me this will save you some time, please enjoy :)
 
 #### Getting it up running:
 ```
