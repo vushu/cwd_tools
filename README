@@ -1,0 +1,3 @@
+In .bashrc add:
+source ~/cwd_tools/cwd_tools
+

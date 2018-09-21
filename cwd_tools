@@ -1,0 +1,80 @@
+#!/bin/bash
+
+PATH_FILE=~/scripts/cwd-list.txt
+cwd()
+{
+  if [ -z "$1" ]; then
+    cd `sed -n 1p $PATH_FILE`
+  else
+    FOUND_PATH=`sed -n $1p $PATH_FILE`
+    if [ -z "$FOUND_PATH" ]; then
+      echo "No path found on line $1"
+    else
+      cd ${FOUND_PATH}
+    fi
+  fi
+}
+
+cwd-get()
+{
+  if [ -z "$1" ]; then
+    cd `sed -n 1p $PATH_FILE`
+  else
+    FOUND_PATH=`sed -n $1p $PATH_FILE`
+    if [ -z "$FOUND_PATH" ]; then
+      echo "No path found on line $1"
+    else
+      echo ${FOUND_PATH}
+    fi
+  fi
+}
+
+cwd-edit-tools(){
+  vim ~/scripts/cwd_tools
+}
+
+cwd-path()
+{
+  vim $PATH_FILE
+}
+
+cwd-list(){
+  cat --number $PATH_FILE
+}
+
+cwd-add(){
+  if [ -z "$1" ]; then
+    PWD= pwd
+    echo $PWD >> $PATH_FILE
+    echo "is added to cwd-list"
+  else
+    if [ -d "$1" ]; then
+      echo $1 >> $PATH_FILE
+      echo "Path $1 is added to cwd-list"
+    else
+      echo "Path $1 is invalid"
+    fi
+  fi
+}
+
+
+cwd-replace(){
+  echo "Not yet implemented"
+}
+
+
+cwd-remove()
+{
+  if [ -z "$1" ]; then
+    echo "Add line number to remove"
+  else
+    FOUND_PATH=`sed -n $1p $PATH_FILE`
+    if [ -z "$FOUND_PATH" ]; then
+      echo "No path found on line $1"
+    else
+      sed -i -e $1d $PATH_FILE
+      #NEW_FILE2=$(sed '/^\s*$/d' $NEW_FILE)
+      echo "Removed path from line $1"
+    fi
+  fi
+}
