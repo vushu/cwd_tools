@@ -31,12 +31,12 @@ cwd-get()
 }
 
 cwd-edit-tools(){
-  vim ~/scripts/cwd_tools
+  xdg-open ~/tools/cwd_tools/cwd_tools
 }
 
 cwd-paths()
 {
-  vim $PATH_FILE
+  xdg-open $PATH_FILE
 }
 
 cwd-list(){
