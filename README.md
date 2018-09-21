@@ -11,7 +11,7 @@ echo "source ~/tools/cwd_tools/cwd_tools" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-#### Navigate to folder and to add to cwd-list:
+#### Navigate to folder and to add to cwd-list or write path:
 ```
 cwd-add
 ```
@@ -31,5 +31,10 @@ cwd-get <number>
 ```
 cwd-remove <number>
 ```
+#### Show cwd-list.txt to manualy modify
+```
+cwd-paths
+```
+
 
 
