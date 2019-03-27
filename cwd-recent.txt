@@ -1,1 +1,1 @@
-/home/vushu/coding/haxe/kha/projects
+/home/vushu/coding

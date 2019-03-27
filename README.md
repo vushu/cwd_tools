@@ -29,7 +29,7 @@ Im using the terminal alot especially navigating to different working dirs, but 
    ```
 #### Remove cwd path
    ```
-   cwd-remove <number>
+   cwd-remove or cwd r
    ```
 #### Show cwd-list.txt to manually modify
    ```

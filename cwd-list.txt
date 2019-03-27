@@ -1,9 +1,5 @@
-/home/vushu/coding/csharp/covr/Toolkit
 /home/vushu/coding
-/home/vushu/coding/clojure/vucap
-/home/vushu/eclipse-workspace/com.dti.easytemplates
 /home/vushu/eclipse-workspace/com.dti.toolchanger
-/home/vushu/coding/haxe/helloHeaps
 /home/vushu/coding/haxe/kha/projects
 /home/vushu/coding/rust/khoai
 /home/vushu/coding/haxe/kha/BoomerRanger

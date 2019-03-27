@@ -21,7 +21,7 @@ cwd-get()
 }
 
 cwd-edit-tools(){
-  xdg-open ~/tools/cwd_tools/cwd_tools
+xdg-open ~/tools/cwd_tools/cwd_tools
 }
 
 cwd-paths()
@@ -30,42 +30,51 @@ cwd-paths()
 }
 
 cwd-list() {
-  cat --number $PATH_FILE
+cat --number $PATH_FILE
 }
 
 cwd-add(){
-  if [ -z "$1" ]; then
-    PWD= pwd
-    echo $PWD >> $PATH_FILE
-    echo "is added to cwd-list"
+if [ -z "$1" ]; then
+  PWD= pwd
+  echo $PWD >> $PATH_FILE
+  echo "is added to cwd-list"
+else
+  if [ -d "$1" ]; then
+    echo $1 >> $PATH_FILE
+    echo "Path $1 is added to cwd-list"
   else
-    if [ -d "$1" ]; then
-      echo $1 >> $PATH_FILE
-      echo "Path $1 is added to cwd-list"
-    else
-      echo "Path $1 is invalid"
-    fi
+    echo "Path $1 is invalid"
   fi
+fi
 }
 
 
 cwd-replace(){
-  echo "Not yet implemented"
+echo "Not yet implemented"
 }
 
 
 cwd-remove()
 {
-  if [ -z "$1" ]; then
+  cwd-list
+  read -p "Which line number to be removed? " num
+  if ! [[ "$num" =~ ^[0-9]+$ ]]
+  then
+    echo "Only integer!"
+    return
+  fi
+  #num=$(printf "%s" "$var"|tr -dc '[:digit:]')
+  #num=$((var + 1))
+  if [ -z "$num" ]; then
     echo "Add line number to remove"
   else
-    FOUND_PATH=`sed -n $1p $PATH_FILE`
+    FOUND_PATH=`sed -n ${num}p $PATH_FILE`
     if [ -z "$FOUND_PATH" ]; then
-      echo "No path found on line $1"
+      echo "No path found on line $num"
     else
-      sed -i -e $1d $PATH_FILE
+      sed -i -e ${num}d $PATH_FILE
       #NEW_FILE2=$(sed '/^\s*$/d' $NEW_FILE)
-      echo "Removed path from line $1"
+      echo "Removed path from line $num"
     fi
   fi
 }
@@ -81,6 +90,12 @@ cwd()
   if [ "$1" = "a" ]
   then
     cwd-add
+    return
+  fi
+
+  if [ "$1" = "r" ]
+  then
+    cwd-remove
     return
   fi
 
