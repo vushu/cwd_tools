@@ -1,20 +1,10 @@
 #!/bin/bash
 
 PATH_FILE=~/tools/cwd_tools/cwd-list.txt
+RECENT_FILE=~/tools/cwd_tools/cwd-recent.txt
+
 touch $PATH_FILE
-cwd()
-{
-  if [ -z "$1" ]; then
-    cd `sed -n 1p $PATH_FILE`
-  else
-    FOUND_PATH=`sed -n $1p $PATH_FILE`
-    if [ -z "$FOUND_PATH" ]; then
-      echo "No path found on line $1"
-    else
-      cd ${FOUND_PATH}
-    fi
-  fi
-}
+touch $RECENT_FILE
 
 cwd-get()
 {
@@ -39,7 +29,7 @@ cwd-paths()
   xdg-open $PATH_FILE
 }
 
-cwd-list(){
+cwd-list() {
   cat --number $PATH_FILE
 }
 
@@ -76,6 +66,33 @@ cwd-remove()
       sed -i -e $1d $PATH_FILE
       #NEW_FILE2=$(sed '/^\s*$/d' $NEW_FILE)
       echo "Removed path from line $1"
+    fi
+  fi
+}
+
+cwd()
+{
+  if [ "$1" = "l" ]
+  then
+    cwd-list
+    return
+  fi
+
+  if [ "$1" = "a" ]
+  then
+    cwd-add
+    return
+  fi
+
+  if [ -z "$1" ]; then
+    cd `sed -n 1p $RECENT_FILE`
+  else
+    FOUND_PATH=`sed -n $1p $PATH_FILE`
+    if [ -z "$FOUND_PATH" ]; then
+      echo "No path found on $1"
+    else
+      cd ${FOUND_PATH}
+      echo $PWD > $RECENT_FILE
     fi
   fi
 }
