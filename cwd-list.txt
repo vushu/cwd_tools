@@ -1,5 +1,7 @@
 /home/vushu/coding
 /home/vushu/eclipse-workspace/com.dti.toolchanger
 /home/vushu/coding/haxe/kha/projects
-/home/vushu/coding/rust/khoai
 /home/vushu/coding/haxe/kha/BoomerRanger
+/home/vushu/eclipse-workspace/com.dti.easytemplates
+/home/vushu/coding/csharp/covr/Toolkit
+/home/vushu/coding/repo/GTSRB
