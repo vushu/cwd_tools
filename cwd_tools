@@ -30,7 +30,7 @@ cwd-paths()
 }
 
 cwd-list() {
-cat --number $PATH_FILE
+cat -n $PATH_FILE
 }
 
 cwd-add(){
