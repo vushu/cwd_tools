@@ -57,7 +57,8 @@ echo "Not yet implemented"
 cwd-remove()
 {
   cwd-list
-  read -p "Which line number to be removed? " num
+  echo "Which line number to be removed? "
+  read num
   if ! [[ "$num" =~ ^[0-9]+$ ]]
   then
     echo "Only integer!"
